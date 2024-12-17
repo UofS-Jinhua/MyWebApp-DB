@@ -51,3 +51,10 @@ CREATE TABLE Users (
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
+
+-- Let the database support utf8mb4 (can use Chinese characters)
+ALTER TABLE Categories CHANGE name name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE SubCategories CHANGE name name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE SubsubCategories CHANGE name name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE Notes CHANGE title title VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE Notes CHANGE content content TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
