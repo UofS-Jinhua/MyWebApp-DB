@@ -1,4 +1,4 @@
--- Active: 1731606790060@@127.0.0.1@3306@notes
+-- Active: 1733976230969@@9527notedb.mysql.database.azure.com@3306@notes
 USE Notes;
 
 CREATE TABLE IF NOT EXISTS Categories (
@@ -51,6 +51,15 @@ CREATE TABLE Users (
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS LinkedNotes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    note_id INT NOT NULL,
+    linked_note_id JSON NOT NULL,
+    FOREIGN KEY (note_id) REFERENCES Notes(id)
+);
+
+
 
 -- Let the database support utf8mb4 (can use Chinese characters)
 ALTER TABLE Categories CHANGE name name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

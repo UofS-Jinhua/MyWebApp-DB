@@ -22,3 +22,6 @@ Thumbs.db
 .history/
 .idea/
 *.iml
+
+# 忽略 queries 文件
+Myqueries.sql
